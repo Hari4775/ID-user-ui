@@ -1,0 +1,58 @@
+.Enquirey-container {
+        /* background: rgba(255, 255, 255, 0.15);  */
+        backdrop-filter: blur(3px); /* Optional: Blur effect for the background */
+        border-bottom: 1px solid rgba(17, 31, 226, 0.1); /* Optional: Border for better visibility */
+        stroke-width: 1px;
+}
+@keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-out {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes slide-in {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slide-out {
+    0% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-in-out;
+  }
+  
+  .animate-fade-out {
+    animation: fade-out 0.3s ease-in-out;
+  }
+  
+  .animate-slide-in {
+    animation: slide-in 0.5s ease-in-out;
+  }
+  

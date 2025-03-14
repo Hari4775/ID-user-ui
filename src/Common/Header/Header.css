@@ -1,0 +1,97 @@
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Adjust the z-index as needed */
+}
+
+.navbar {
+  /* background: rgba(255, 255, 255, 0.15);  */
+  backdrop-filter: blur(30px); /* Optional: Blur effect for the background */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Optional: Border for better visibility */
+  height: 75px;
+}
+
+.mobile-nav-menu{
+  background: rgba(255, 255, 255, 0.15); /* Slightly transparent background */
+  backdrop-filter: blur(50px); /* Optional: Blur effect for the background */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Optional: Border for better visibility */
+
+}
+/* Add styles for the mobile menu backdrop and fixed menu */
+.navbar-backdrop {
+  z-index: 999; /* Ensure the backdrop is behind the menu */
+}
+
+.navbar-menu {
+  z-index: 1000; 
+}
+  .nav-texts {
+    /* margin-left: 533px; */
+    color: white;
+  }
+  .login-button {
+    background-color: #36369f;
+    color: white;
+  }
+  .login-button:hover {
+    background-color: blue;
+  }
+  .pc-nav-text {   
+    font-size: large;
+    color: rgb(12, 74, 124);
+  }
+  .pc-nav-text:hover {
+    color: blue;
+  }
+  .navbar-burger {
+    color: #36369f;
+  }
+
+  .nav-text {
+    font-weight: bold;
+    color: #1E1E1E;
+    font-size: large;
+    color: white;
+
+
+  }
+  .nav-text:hover {
+    /* color: blue; */
+    background-color: aqua;
+    height: 20px;
+
+  }
+  .logo {
+    width: 100px;
+    /* height: auto; */
+    margin-left: 15px;
+  }
+  @media (min-width: 200px) {
+    .navbar-container {
+      /* margin-left: 21px; */
+    }
+  }
+  @media (min-width: 600px) { 
+    .logo {
+      width: 160px;
+    }
+  }
+  @media (min-width: 768px) {
+    .logo {
+      width: 160px;
+    }
+  }
+  @media (min-width: 992px) {
+    .logo {
+      width: 160px;
+      margin-left: 35px;
+    }
+  }
+  @media (min-width: 1200px) {
+    .logo {
+      width: 160px;
+      margin-left: 52px;
+    }
+  }

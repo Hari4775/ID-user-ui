@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playwrite+IT+Moderna:wght@100..400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+}
+
+h1 {
+    color: #164e63; /* Dark cyan color */
+}
