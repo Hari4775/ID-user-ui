@@ -2,7 +2,7 @@ import React from 'react'
 import './Card.css'
 
 const Card = ({ data }) => {
-  console.log(data, "card data")
+  // console.log(data, "card data")
   return (
     <div className="h-28 md:w-10/12 mx-2 border-opacity-100 shadow-2xl border-gray-100/50 relative cursor-pointer my-5 border-1">     
       <div className="absolute inset-0 transform transition duration-300 flex flex-col justify-center items-center">
