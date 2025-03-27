@@ -9,7 +9,6 @@ const MainRoute = () => {
       <Routes>
         {/* User Routes */}
         <Route path="/*" element={<UserRoutes />} />
-
       </Routes>
     </BrowserRouter>
   );
