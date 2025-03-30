@@ -5,9 +5,7 @@ import PackageCards from './PackageCards';
 import { getPackages } from '../../../api/package/packageAPI';
 const Packages = () => {
 
-  const navigate = useNavigate();
   const [packages, setPackages] = useState([]);
-  const [loading, setLoading] = useState(true);
   console.log(packages,"packages");
   
   
@@ -30,9 +28,6 @@ const Packages = () => {
     }, []);
   
 
-  const handleCardClick = (pkg) => {
-    navigate(`/packagedetails/${pkg._id}`);
-  };
 
   return (
     <>

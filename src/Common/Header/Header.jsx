@@ -30,7 +30,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar-container py-5 mx-auto " id="main-header">
+    <div className="navbar-container py-5 mx-auto" id="main-header">
       {!isMenuOpen && (
         <nav className="relative navbar flex justify-between items-center w-11/12 mx-auto rounded-lg" style={{ padding: '15px' }}>
           <Link className="text-3xl font-bold leading-none" to="/">

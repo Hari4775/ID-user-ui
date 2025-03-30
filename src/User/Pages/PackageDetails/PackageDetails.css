@@ -166,3 +166,31 @@ backdrop-filter: blur(20px);
   box-shadow: 0 2px 8px rgba(0, 0, 255, 0.4), 0 6px 20px rgba(255, 255, 255, 0.6);
 }
 
+.package-details-main-container {
+  background: linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc);
+}
+
+/* Dark overlay when plan is open */
+.opacity-30 {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Plan container full screen */
+
+.day-plan-data-container::-webkit-scrollbar {
+  width: 6px; /* Reduce the width */
+}
+
+.day-plan-data-container::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track color */
+  border-radius: 10px;
+}
+
+.day-plan-data-container::-webkit-scrollbar-thumb {
+  background: #3498db; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+.day-plan-data-container::-webkit-scrollbar-thumb:hover {
+  background: #2980b9; /* Darker shade on hover */
+}

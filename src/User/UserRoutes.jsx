@@ -27,7 +27,7 @@ const UserRoutes = () => {
     <UserLayout>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/packagedetails/:_id" element={<PackageDetails />} />
+        <Route path="/packagedetails/:package_id" element={<PackageDetails />} />
         <Route path="/contact-us" element={<ConnectUs />} />
       </Routes>
     </UserLayout>

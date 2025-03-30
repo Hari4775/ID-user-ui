@@ -93,31 +93,29 @@ const Enquirey = () => {
   return (
     <>
       {isOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 animate-fade-in"
+        <div className="fixed inset-0 z-50 flex items-center justify-center mt-0 md:mt-10 bg-black bg-opacity-50 animate-fade-in"
           onAnimationEnd={(e) => {
             if (!isOpen) e.target.classList.add("animate-fade-out");
           }}
         >
-          <div
-            className="rounded-lg w-10/12 px-5 lg:w-3/5 shadow-md shadow-blue-700 animate-slide-in"
+          <div className="rounded-lg w-10/12 px-5 lg:w-6/12 shadow-md shadow-blue-800 animate-slide-in"
             style={{
               background:
                 "linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc, #004080)",
             }}
           >
             {/* Close Button */}
-            <div className="flex justify-between items-center py-3  ">
+            <div className="flex justify-between items-center md:py-3 py-0 ">
             <button
               onClick={closeModal}
-              className="text-gray-600 hover:text-black ml-auto  text-xl"
+              className="text-gray-600 hover:text-black ml-auto  text-2xl font-extrabold  w-1/12"
             >
               ✖
             </button>
             </div>
 
             <form ref={formRef} onSubmit={handleSubmit}>
-              <div className="mt-4 md:flex mx-auto items-center gap-8 md:w-10/12">
+              <div className=" md:flex mx-auto items-center gap-8 md:w-10/12">
                 <TextField
                   type="text"
                   name="name"
@@ -130,7 +128,7 @@ const Enquirey = () => {
                   aria-disabled={loading}
                   variant="standard"
                   label="Name"
-                  className="w-full md:w-1/2"
+                  className="w-full md:w-1/2 font-bold text-lg "
                 />
                 <TextField
                   type="email"
@@ -147,7 +145,7 @@ const Enquirey = () => {
                   className="w-full"
                 />
               </div>
-              <div className="mt-4 flex w-full md:w-10/12 mx-auto">
+              <div className="mt-2 md:mt-4 flex w-full md:w-10/12 mx-auto">
                 <TextField
                   type="tel"
                   name="phone"
@@ -163,9 +161,9 @@ const Enquirey = () => {
                   className="w-full md:w-1/2 mr-auto"
                 />
               </div>
-              <div className="mt-4 md:w-10/12 w-full mx-auto">
+              <div className=" md:w-10/12 w-full mx-auto">
                 <TextField
-                  rows={5}
+                  rows={3}
                   type="text"
                   name="message"
                   id="message"
@@ -181,13 +179,13 @@ const Enquirey = () => {
                   className="w-full"
                 />
               </div>
-              <div className="flex justify-end mx-10">
+              <div className="flex justify-center md:justify-end mx-10 ">
                 <button
                   type="submit"
                   title={loading ? "Sending..." : "Send"}
                   disabled={loading}
                   aria-disabled={loading}
-                  className="w-56 bg-black text-white h-14 my-10 rounded-lg text-lg"
+                  className=" px-4 bg-black text-white md:h-14 h-10 my-5  rounded-lg  md:text-lg text-xs "
                 >
                   {loading ? "Sending..." : "Enquire Now"}
                 </button>
