@@ -20,6 +20,7 @@ function AutoPlay() {
     speed: 2000,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024, // Large screens and above
@@ -43,7 +44,8 @@ function AutoPlay() {
   };
 
   return (
-    <div className="slider-container w-11/12 mx-auto mb-10 ">
+    <div className="slider-container w-full mx-auto mb-10 ">
+      <div className=" w-11/12 mx-auto">
       <h1 className="text-left  pt-10 lg:text-2xl text-lg font-bold mb-5">All-Inclusive Luxury Awaits —No Extra Fees!</h1>
     
       <div className="flex items-center space-x-2 mb-4">
@@ -53,11 +55,14 @@ function AutoPlay() {
         </p>
      </div>
 
-
-      <div className="flex items-center space-x-2 lg:mb-10 mb-6">
+     <div className="flex items-center space-x-2 lg:mb-10 mb-6">
         <img src={star} className="w-7"/>
         <p className=" text-left md:text-sm text-xs">packages—no extra charges, just pure relaxation and convenience with every booking.</p>      
       </div>
+     </div>
+
+
+      
 
      
       <Slider {...settings}>
