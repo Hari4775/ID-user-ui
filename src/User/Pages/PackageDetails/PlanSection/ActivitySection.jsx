@@ -39,32 +39,19 @@ const ActivitiesSection = ({ activities, isEditing, updateActivities }) => {
   // ))
 
   return (
-    <div className="w-10/12 mx-auto md:my-10 my-4">
+    <div className="my-4 lg:my-12 w-10/12 mx-auto">
       <div>
-          <h1 className="font-bold mb-1 text-left text-xl">{activities?.activity_name}</h1>    
+          <h1 className="font-bold text-sm lg:text-xl ">{activities?.activity_name}</h1>    
       </div>
 
-      <div className="h-48 my-2 flex overflow-x-auto custom-scrollbar">
-        {activity_images.map((img, index) => (
-          <div key={index} className="relative w-full">
-            <img className="h-full  object-cover mx-2 rounded-xl border-2 border-blue-600"  src={img.image} alt={`Hotel Image ${index + 1}`}/>
-          </div>
-        ))}
+      <div className="lg:h-48 h-32 my-2 flex overflow-x-auto custom-scrollbar space-x-4">
+          {activity_images.map((img, index) => (
+            <div key={index} className="relative min-w-[200px] lg:min-w-[300px]">
+              <img  className="h-full w-full object-cover rounded-lg border-2 border-white"  src={img.image} alt={`Hotel Image ${index + 1}`}  />
+           </div>
+          ))}
       </div>
-    
-      {/* {activities?.activity_images.length > 0 && (
-          <div className="h-48 flex overflow-x-auto custom-scrollbar">
-            {activities.activity_images.map((img, imgIndex) => (
-              <img
-                key={imgIndex}
-                className="h-full mx-2"
-                src={img}
-                alt={`Activity Image ${imgIndex + 1}`}
-              />
-            ))}
-          </div>
-        )} */}
-      <p className="mb-2 text-xs text-left">{activities?.activity_description}</p>
+      <p className="mb-2  text-[7px] lg:text-xs text-left">{activities?.activity_description}</p>
     </div>
   );
 };

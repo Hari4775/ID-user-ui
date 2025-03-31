@@ -13,13 +13,11 @@
       border: 1px solid white;
       color: blue;
       box-sizing: border-box;
-      height: 40.8px;
     }
     .no-button:hover {
       background-color:#0808e9;;
       color: white;
       border: 2x solid white;
-     
     }    
 .card-container{
   font-family: 'PT Sans', sans-serif;

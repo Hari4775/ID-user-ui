@@ -7,10 +7,10 @@ const ChatBot = () => {
   return (
     <div className="whatsapp-logo ">
     <a  href="tel:9344963795">
-      <img className="mb-2" src={phoneIcon} alt="Phone Icon" />
+      <img className="mb-2 lg:w-14 w-10" src={phoneIcon} alt="Phone Icon" />
     </a>
     <a     href="https://api.whatsapp.com/message/4QD4M525ED3PN1?autoload=1&app_absent=0" style={{ marginTop: '20px' }}>
-      <img src={wa} className="" alt="WhatsApp Icon" />
+      <img src={wa} className="lg:w-14 w-10" alt="WhatsApp Icon" />
     </a>
   </div>
   

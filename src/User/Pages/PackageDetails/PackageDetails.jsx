@@ -86,9 +86,9 @@ const PackageDetails = () => {
     background: "linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc,)" 
   }}>
   <div className={`relative w-11/12 mx-auto transition-opacity duration-500 ${selectedCategoryId ? 'opacity-30' : 'opacity-100'}`}>
-  <h1 className="font-bold text-3xl ">CHOOSE YOUR PREMIUM</h1>
+  <h1 className="font-bold lg:text-3xl  text-lg">CHOOSE YOUR PREMIUM</h1>
     
-  <div className="w-full py-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  <div className="w-full py-10 grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {categories?.length > 0 ? (
             categories.map((cat) => (
               <CategoryCard key={cat.category_id} category={cat} refresh={fetchCategories} onViewPlan={handleViewPlan}
@@ -110,22 +110,22 @@ const PackageDetails = () => {
  <div className="fixed inset-0 z-50 flex items-center justify-center mt-0 md:mt-10 bg-black bg-opacity-50 animate-fade-in w-full"
                  onAnimationEnd={(e) => { if (!isOpen) e.target.classList.add("animate-fade-out");}}>
       
-      <div className="rounded-lg w-11/12 px-5  shadow-md shadow-blue-800 animate-slide-in mt-10"
+      <div className="rounded-lg w-11/12  lg:px-5  shadow-md shadow-blue-800 animate-slide-in mt-10"
             style={{
               background:"linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc, #004080)", }}>
               {/* Close Button */}
 
 
-              <div className='flex'>
-                         <h2 className='mt-3 mb-4 text-lg font-bold'>Day Plan for {selectedCategory?.categoryName}</h2>
+              <div className='flex '>
+                         <h2 className='lg:my-3   lg:text-lg text-md font-bold text-blue-950 lg:ml-0 ml-3'>Day Plan for {selectedCategory?.categoryName}</h2>
                            <div className=" md:py-3 py-0 w-1/12 ml-auto">
                               <button onClick={closeModal} className="text-gray-600 hover:text-black ml-auto  text-2xl font-extrabold  w-1/12" >
                                  ✖
                               </button>
                             </div>
               </div>
-            <div className='flex'> 
-      <div className='left-inner-container lg:w-9/12 w-full mr-2 '> 
+            <div className='flex b '> 
+      <div className='left-inner-container lg:w-9/12 w-full lg:mr-2  '> 
 
         
                  {/* // <div className='left-inner-container w-9/12 bg-slate-100'>  */}
@@ -139,12 +139,14 @@ const PackageDetails = () => {
                      </div>              
                   )}
           
-                  <div className="left-inner-container w-full mx-auto block lg:hidden pb-3"> 
-                     <div className="payment-section image-container shadow-blue-400">
+
+                  <div className=" w-full mx-auto block lg:hidden rounded-lg " style={{
+              background:"linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc, #004080)", }}> 
+                     <div className="payment-section image-container ">
                           <div className="flex justify-between items-center w-11/12 mb-3 mx-auto pt-3">
                             {/* Amount on the left */}
                               <div className="flex items-center">
-                                 <h1 className="text-xl font-extrabold text-left">₹ {selectedCategory?.categoryDiscountedPrice}</h1>
+                                 <h1 className="lg:text-xl text-sm font-extrabold text-left text-black">₹ {selectedCategory?.categoryDiscountedPrice}</h1>
                                  <p className="text-md ml-2">/Adult</p>
                               </div>
                                {/* Button on the right */}
@@ -155,8 +157,8 @@ const PackageDetails = () => {
                 </div>  
             </div>
     
-      <div className='left-inner-container w-3/12  mr-auto hidden lg:block'> 
-            <div className='payment-section  image-container shadow-blue-400'>
+            <div className='left-inner-container w-3/12  mr-auto hidden lg:block '> 
+             <div className='payment-section  image-container shadow-blue-400'>
                  <div className='flex w-11/12 mb-3 mx-auto pt-5'>
                    <h1 className='text-3xl font-extrabold '>₹  {selectedCategory?.categoryDiscountedPrice}</h1>
                    <p className='text-md'>/Adult</p>
@@ -166,7 +168,7 @@ const PackageDetails = () => {
                     <button className="no-button mx-3 mt-10 w-11/12 " onClick={() => handleCardClick()}>PROCEED TO PAYMENT</button>
                  </div>
              </div>
-      </div>
+          </div>
       </div>
 
     </div>

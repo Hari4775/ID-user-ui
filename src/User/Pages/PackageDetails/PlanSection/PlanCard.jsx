@@ -5,7 +5,7 @@ import CommonHeadingSection from './CommonHeadingSection';
 import AccommodationSection from './AccomodationSection';
 import "./../PackageDetails.css"
 const PlanCard = ({ planData,categorydata }) => {
-  const [planCategorySection, setPlanCategorySection] = useState('features');
+  const [planCategorySection, setPlanCategorySection] = useState('day');
   const [dayPlan, setDayPlan] = useState(planData || []);
   console.log(dayPlan,"day plan updated")
 
@@ -19,7 +19,7 @@ const PlanCard = ({ planData,categorydata }) => {
   const planCategoryUnderLines = (section) => {
     return planCategorySection === section
       ? 'border-b-4 border-[blue] font-bold text-blue-800 '
-      : 'border-b-2 font-medium  border-transparent text-blue-700 ';
+      : 'border-b-2 font-medium font-semibold border-transparent text-blue-700 ';
   };
 
   const calculateTotals = () => {
@@ -59,11 +59,14 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'day':
         return (
-          <div className="day-plan-data-container  w-11/12 mx-auto h-96 image-container 
+          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
            overflow-y-scroll pb-5 rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div className='cursor-pointer  group  w-full  rounded-lg shadow-lg mb-5' key={index} >
                 <CommonHeadingSection planItem={planItem} />
+                <div className='w-10/12 mx-auto'>
+                    <p className='text-black lg:text-sm  text-xs mt-2'>{planItem?.description}</p>
+                </div>
                 
                 {planItem?.accommodations?.map((accommodationItem) => (
                   <AccommodationSection
@@ -72,7 +75,7 @@ const PlanCard = ({ planData,categorydata }) => {
                   />
                 ))}
              
-                  <p>{planItem?.description}</p>
+                
               
                 {planItem?.activities?.map((activityItem) => (
                   <ActivitiesSection
@@ -93,7 +96,8 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'accomadation':
         return (
-          <div className="day-plan-data-container w-11/12 mx-auto h-96 overflow-y-scroll mb-3">
+          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
+          overflow-y-scroll pb-5 rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div key={index}>
                 <CommonHeadingSection planItem={planItem} />
@@ -110,7 +114,8 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'activity':
         return (
-          <div className="day-plan-data-container w-11/12 mx-auto h-96 overflow-y-scroll mb-3">
+          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
+          overflow-y-scroll pb-5 rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div key={index}>
                 <CommonHeadingSection planItem={planItem} />
@@ -127,7 +132,8 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'food':
         return (
-          <div className="day-plan-data-container w-11/12 mx-auto h-96 overflow-y-scroll mb-3">
+          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
+          overflow-y-scroll pb-5 rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div key={index}>
                 <CommonHeadingSection planItem={planItem} />
@@ -149,19 +155,19 @@ const PlanCard = ({ planData,categorydata }) => {
     <div className="h-full cursor-pointer  duration-300 group   flex w-full self-center overflow-hidden rounded-lg shadow-lg">
 
       <div className=" w-full ml-auto">
-        <div className="menu-bar flex w-full lg:space-x-12 space-x-4 ">
+        <div className="menu-bar flex w-full lg:space-x-12 space-x-3 lg:items-start items-center">
         
 
-          <p
+          {/* <p
             className={`sub-heading lg:text-lg text-xs my-5 lg:ml-5 ${planCategoryUnderLines(
               'features'
             )} transition-all duration-300 ease-in-out`}
             onClick={() => setPlanCategorySection('features')}
           >
             Features
-          </p>
+          </p> */}
           <p
-            className={`sub-heading lg:text-lg text-xs my-5 ${planCategoryUnderLines(
+            className={`sub-heading lg:text-lg text-xs ml-1 my-5 ${planCategoryUnderLines(
               'day'
             )} transition-all duration-300 ease-in-out`}
             onClick={() => setPlanCategorySection('day')}
@@ -169,7 +175,7 @@ const PlanCard = ({ planData,categorydata }) => {
             {totals.totalDays} Days Plan
           </p>
           <p
-            className={`sub-heading lg:text-lg text-xs my-5 ${planCategoryUnderLines(
+            className={`sub-heading lg:text-lg text-xs my-5  ${planCategoryUnderLines(
               'accomadation'
             )} transition-all duration-300 ease-in-out`}
             onClick={() => setPlanCategorySection('accomadation')}

@@ -9,38 +9,29 @@ const CategoryCard = ({ category, refresh, onViewPlan }) => {
   
   return (
     <div
-      className={`cursor-pointer transform hover:scale-105 transition-transform duration-300 group flex w-full flex-col self-center overflow-hidden rounded-lg border-2 shadow-md }`}
-    >
+    className={`cursor-pointer transform hover:scale-105 transition-transform duration-300 group flex w-full self-center rounded-lg border-2 shadow-md relative bg-cover bg-center bg-no-repeat`}
+    style={{
+      backgroundImage: `url(${category.categoryImage || "default-placeholder.png"})`,
+    }}
+  >
   
-          {/* Display Mode */}
-          <div className="relative mx-3 mt-3 flex md:h-5 h-10 overflow-hidden rounded-xl">
-            <img
-              className="peer absolute top-0 right-0 h-full w-full object-cover"
-              src={category.categoryImage || "default-placeholder.png"}
-              alt="Category"
-            />
-          </div>
-          <div className="mt-4 md:px-5 px-2 md:pb-5 pb-1">
-            <h1 className="md:text-lg text-sm tracking-tight font-bold uppercase text-black">
+          <div className="lg:mt-4 md:px-5 px-1 md:pb-5 pb-1">
+            <h1 className="md:text-lg text-xs tracking-tight font-bold uppercase text-yellow-600">
               {category?.categoryName}
             </h1>
             {/* <p className="text-sm text-gray-700">{category?.categoryDescription}</p> */}
-            <div className="mt-2 flex items-center justify-between">
-              <p className="text-sm text-blue-500">{category?.categoryOffer}% OFF</p>
+            <div className="lg:mt-2  flex items-center  rounded-lg px-2 bg-slate-300">
+              {/* <p className="lg:text-sm text-xs text-blue-500">{category?.categoryOffer}% OFF</p> */}
               <div>
-                <span className="line-through text-gray-500">₹{category?.categoryRegularPrice}</span>
-                <span className="text-lg font-bold text-teal-700 mx-2">₹{category?.categoryDiscountedPrice}</span>
+                <span className="line-through text-gray-500 lg:text-sm text-[10px] font-bold">₹{category?.categoryRegularPrice}</span>
+                <span className="lg:text-sm text-[10px] font-bold text-green-500 mx-2">₹{category?.categoryDiscountedPrice}</span>
               </div>
             </div>
-            <div className="flex space-x-2 mt-4">
-             
-              <button
-                className="bg-blue-500 no-button w-full mx-auto text-white px-3 py-1 rounded-md"
-                onClick={() => onViewPlan(category)}
-              >
-                View Details
-              </button>
+            <div className=" w-full h-full mt-5">
+               <button className="bottom-2 left-2 view-button text-white px-3 py-1  lg:text-sm text-xs"
+                  onClick={() => onViewPlan(category)} > VIEW</button>
             </div>
+
           </div>
        
     </div>
