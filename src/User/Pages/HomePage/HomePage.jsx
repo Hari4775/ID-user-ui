@@ -10,7 +10,7 @@ import { bgvideo } from '../../../assets/Index';
 const HomePage = () => {
   return (
     <>
-      <div className="home-page h-screen w-full ">
+      <div className="home-page h-screen w-full  ">
         <video className="video-background" autoPlay loop muted>
           <source src={bgvideo} type="video/mp4" />Your browser does not support the video tag.
         </video>
