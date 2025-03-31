@@ -59,7 +59,7 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'day':
         return (
-          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
+          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto h-80  image-container 
            overflow-y-scroll pb-5 rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div className='cursor-pointer  group  w-full  rounded-lg shadow-lg mb-5' key={index} >

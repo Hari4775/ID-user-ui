@@ -6,9 +6,6 @@ import { getPackages } from '../../../api/package/packageAPI';
 const Packages = () => {
 
   const [packages, setPackages] = useState([]);
-  console.log(packages,"packages");
-  
-  
     const fetchPackages = async () => {
       try {
         // const response = await axios.get(`${url}/test`);  

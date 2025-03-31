@@ -38,6 +38,9 @@ const PackageDetails = () => {
     setSelectedCategoryId(null);
   };
 
+  const handleCardClick =()=>{
+    navigate("/contact-us")
+  }
   const handleViewPlan = (category) => {
     setSelectedCategory(category)
     setSelectedCategoryId(category?.category_id);
@@ -81,8 +84,9 @@ const PackageDetails = () => {
   }, [selectedCategoryId]);
 
 
+
   return (
-  <div className=" w-full mx-auto pt-32 pb-10   package-details-main-container "style={{ 
+  <div className=" w-full mx-auto pt-32 h-screen  package-details-main-container  "style={{ 
     background: "linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc,)" 
   }}>
   <div className={`relative w-11/12 mx-auto transition-opacity duration-500 ${selectedCategoryId ? 'opacity-30' : 'opacity-100'}`}>
@@ -107,10 +111,10 @@ const PackageDetails = () => {
 {/* PLAN CONTAINER */}
   {isOpen &&
  
- <div className="fixed inset-0 z-50 flex items-center justify-center mt-0 md:mt-10 bg-black bg-opacity-50 animate-fade-in w-full"
+ <div className="fixed inset-0 z-50 flex items-center justify-center mt-0 md:mt-10 bg-black bg-opacity-50 animate-fade-in w-full "
                  onAnimationEnd={(e) => { if (!isOpen) e.target.classList.add("animate-fade-out");}}>
       
-      <div className="rounded-lg w-11/12  lg:px-5  shadow-md shadow-blue-800 animate-slide-in mt-10"
+      <div className="rounded-lg w-11/12  lg:px-5  shadow-md  shadow-blue-800 animate-slide-in lg:mt-10 mt-3"
             style={{
               background:"linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc, #004080)", }}>
               {/* Close Button */}
@@ -140,7 +144,7 @@ const PackageDetails = () => {
                   )}
           
 
-                  <div className=" w-full mx-auto block lg:hidden rounded-lg " style={{
+                  <div className=" w-full mx-auto block lg:hidden rounded-lg  mt-2" style={{
               background:"linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc, #004080)", }}> 
                      <div className="payment-section image-container ">
                           <div className="flex justify-between items-center w-11/12 mb-3 mx-auto pt-3">

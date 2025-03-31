@@ -105,7 +105,7 @@ const ConnectUs = () => {
             </h1>
             <p className="text-white text-start px-5">We’re here to help. Reach out to us!</p>
           </div>
-          <div className="pt-5 pb-10 space-y-8 px-5">
+          <div className="pt-5 pb-4 space-y-8 px-5">
             <div className="flex items-center text-white">
               <MdPhoneInTalk className="mr-2" />
               <span>+91 80785 49682</span>
@@ -143,16 +143,16 @@ const ConnectUs = () => {
 
         {/* Right Section */}
         <div
-          className="w-full px-5 lg:w-3/5"
+          className="w-full px-5 lg:w-3/5 "
           style={{
             background: "linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc, #004080)",
           }}
         >
           <form ref={formRef} onSubmit={handleSubmit}>
-            <h2 className="text-4xl font-bold text-cyan-800 text-center font-moderna py-5">
+            <h2 className="lg:text-4xl text-lg font-bold text-cyan-800 text-center font-moderna py-2 lg:py-5">
               Contact
             </h2>
-            <div className="mt-4 flex flex-col md:flex-row justify-evenly items-center gap-8">
+            <div className="lg:mt-4 mt-2 flex flex-col md:flex-row justify-evenly items-center lg:gap-8 gap-3">
               <TextField
                 type="text"
                 name="name"
@@ -182,7 +182,7 @@ const ConnectUs = () => {
                 className="w-full md:w-60"
               />
             </div>
-            <div className="  mt-4 flex w-full md:w-10/12 mx-auto ">
+            <div className=" mt-2 lg:mt-4 flex w-full md:w-10/12 mx-auto ">
               <TextField
                 type="tel"
                 name="phone"
@@ -200,7 +200,7 @@ const ConnectUs = () => {
             </div>
             <div className="mt-4 md:w-10/12 w-full mx-auto">
               <TextField
-                rows={5}
+                rows={3}
                 type="text"
                 name="message"
                 id="message"
@@ -222,7 +222,7 @@ const ConnectUs = () => {
                 title={loading ? "Sending..." : "Send"}
                 disabled={loading}
                 aria-disabled={loading}
-                className="w-56 bg-black text-white h-14 my-10 rounded-lg text-lg"
+                className="w-56 bg-black text-white h-14 lg:my-10 my-2 rounded-lg text-lg"
               >
                 {loading ? "Sending..." : "Send"}
               </button>
@@ -231,7 +231,7 @@ const ConnectUs = () => {
               <img
                 src={sendImage}
                 alt="send message"
-                className="w-1/2 max-w-[12rem] -mt-16 hover:cursor-pointer"
+                className="w-1/2 max-w-[12rem]  -mt-16 hover:cursor-pointer"
               />
             </div>
           </form>

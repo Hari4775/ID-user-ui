@@ -1,12 +1,16 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
   return (
-    <div className='bg-slate-500  pt-10 pb-20 ' style={{ background:"#002b4d" }}>
-        <h1 className='text-center  text-white text-sm font-bold pt-2 '>Copyright © Island_days</h1>
-      
+    <div className=" py-5 w-full "
+      style={{ background: "#002b4d", position: "absolute", left: "0" }}
+    >
+      <h1 className="text-center text-slate-400 text-xs  pt-2">
+        from 
+      </h1>
+      <h1 className='text-bold text-center text-blue-400 font-extrabold'> H E Z T A </h1>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
