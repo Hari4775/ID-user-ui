@@ -16,9 +16,11 @@ import bookmark from "./icons/bookmark.svg"
 import  HOTEL from "./icons/HOTEL.png"
 import heroImage from "./images/island-days-main.png"
 import flightimage from "./icons/flightimage.png"
+import bgimg from "./videos/Capture123.PNG"
 
 export {
     bgvideo,
+    bgimg,
     bgisland,
     wa,
     logoIcon,

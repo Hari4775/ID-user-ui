@@ -5,13 +5,24 @@ import AutoPlay from './Slider/Slider';
 import InstagramData from './InstaData/InstagramData';
 import Services from '../../Components/Services/Services';
 import Packages from '../../Components/packages/Packages';
-import { bgvideo } from '../../../assets/Index';
+import { bgimg, bgvideo } from '../../../assets/Index';
 
 const HomePage = () => {
+  const [videoLoaded, setVideoLoaded] = useState(false);
   return (
     <>
       <div className="home-page h-screen w-full  ">
-        <video className="video-background" autoPlay loop muted>
+
+      {!videoLoaded && (
+          <img
+            src={bgimg} // A static image for instant rendering
+            alt="Background"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
+        <video className="video-background" autoPlay loop muted  playsInline
+          preload="auto"
+          onLoadedData={() => setVideoLoaded(true)} >
           <source src={bgvideo} type="video/mp4" />Your browser does not support the video tag.
         </video>
         <HeroPage />
