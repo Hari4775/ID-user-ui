@@ -4,7 +4,9 @@ import axios from 'axios';
 const API_URL = process.env.REACT_APP_API_URL;
      
 export const getPackages = async () => {
-    return await axios.get(`${API_URL}/packages`);
+    return await axios.get(`${API_URL}/packages`,{
+        withCredentials:true
+    });
 };
 
 export const getPackage = async (projectId) => {
