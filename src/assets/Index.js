@@ -1,4 +1,3 @@
-import bgisland from './images/pexels-pixabay-373394.jpg'
 import bgvideo from './videos/newbg.mp4'
 import wa from './images/whatsapp.png'
 import logoIcon from './images/ISLAND-DAYS-LOGO.png'
@@ -21,7 +20,6 @@ import bgimg from "./videos/Capture123.PNG"
 export {
     bgvideo,
     bgimg,
-    bgisland,
     wa,
     logoIcon,
     info,

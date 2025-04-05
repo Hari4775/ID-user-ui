@@ -1,6 +1,6 @@
 // src/User/routes/UserRoutes.js
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Header from '../Common/Header/Header';
 import Enquirey from './Components/Modal/Enquirey';
 import ChatBot from './Components/ChatBot/ChatBot';
@@ -11,11 +11,14 @@ import ConnectUs from './Pages/Contact-us/Contact-us';
 
 
 const UserLayout = ({ children }) => {
+  const location = useLocation();
+  const hideChatBot = location.pathname.startsWith('/packagedetails');
   return (
     <div className="w-full">
       <Header />
       <Enquirey />
-      <ChatBot />
+      {!hideChatBot && <ChatBot />}
+      {/* <ChatBot /> */}
       {children}
       <Footer />
     </div>
