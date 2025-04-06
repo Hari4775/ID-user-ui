@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
-// import PlanCard from "../PlanSection/PlanCard";
-// import PlanForm from "../PlanSection/PlanForm";
-// import { getPlan } from "../../../api/DayPlan/DayPlanApi";
+import { useNavigate } from "react-router-dom";
 
 
-const CategoryCard = ({ category, refresh, onViewPlan }) => {
+
+const CategoryCard = ({ category}) => {
+  const navigate = useNavigate();
+
+   const handleCardClick = useCallback(() => {
+      navigate(`/plandetails/${category.category_id}`);
+    }, [navigate, category.category_id]);
   
   return (
     <div
@@ -29,7 +33,7 @@ const CategoryCard = ({ category, refresh, onViewPlan }) => {
             </div>
             <div className=" w-full h-full mt-5">
                <button className="bottom-2 left-2 view-button text-white px-3 py-1  lg:text-sm text-xs"
-                  onClick={() => onViewPlan(category)} > VIEW</button>
+                 onClick={handleCardClick} > VIEW</button>
             </div>
 
           </div>

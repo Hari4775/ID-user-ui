@@ -10,4 +10,8 @@ export const  getCategories =async(package_id) =>{
     return await axios.get(`${API_URL}/category/${package_id}`, {withCredentials:true})
 }
 
+export const  getCategory=async(category_id) =>{
+    console.log(category_id,"category id")
+    return await axios.get(`${API_URL}/category/single/${category_id}`, {withCredentials:true})
+}
 

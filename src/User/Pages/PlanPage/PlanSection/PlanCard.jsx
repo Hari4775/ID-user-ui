@@ -3,8 +3,9 @@ import FoodSection from './FoodSection';
 import ActivitiesSection from './ActivitySection';
 import CommonHeadingSection from './CommonHeadingSection';
 import AccommodationSection from './AccomodationSection';
-import "./../PackageDetails.css"
-const PlanCard = ({ planData,categorydata }) => {
+import "./../../PackageDetails/PackageDetails.css"
+import DescriptionSection from './DescriptionSection';
+const PlanCard = ({ planData }) => {
   const [planCategorySection, setPlanCategorySection] = useState('day');
   const [dayPlan, setDayPlan] = useState(planData || []);
 
@@ -58,14 +59,15 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'day':
         return (
-          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
-           overflow-y-scroll pb-5 rounded-lg">
+          <div className="day-plan-data-container  lg:w-11/12  lg:h-[410px]  w-full mx-auto pb-10 image-container  
+           overflow-y-scroll rounded-lg">
             {dayPlan.map((planItem, index) => (
-              <div className='cursor-pointer  group  w-full  rounded-lg shadow-lg mb-5 ' key={index} >
+              <div className='cursor-pointer  group  w-full  rounded-lg shadow-lg pb-20 ' key={index} >
                 <CommonHeadingSection planItem={planItem} />
-                <div className='w-10/12 mx-auto'>
+                <DescriptionSection description={planItem?.description} />
+                {/* <div className='w-10/12 mx-auto'>
                     <p className='text-black lg:text-sm  text-xs mt-2'>{planItem?.description}</p>
-                </div>
+                </div> */}
                 
                 {planItem?.accommodations?.map((accommodationItem) => (
                   <AccommodationSection
@@ -95,8 +97,8 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'accomadation':
         return (
-          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
-          overflow-y-scroll pb-5 rounded-lg">
+          <div className="day-plan-data-container  lg:w-11/12  lg:h-[410px]  w-full mx-auto pb-10 image-container  
+           overflow-y-scroll rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div key={index}>
                 <CommonHeadingSection planItem={planItem} />
@@ -113,8 +115,8 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'activity':
         return (
-          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
-          overflow-y-scroll pb-5 rounded-lg">
+          <div className="day-plan-data-container  lg:w-11/12  lg:h-[410px]  w-full mx-auto pb-10 image-container  
+          overflow-y-scroll rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div key={index}>
                 <CommonHeadingSection planItem={planItem} />
@@ -131,8 +133,8 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'food':
         return (
-          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
-          overflow-y-scroll pb-5 rounded-lg">
+          <div className="day-plan-data-container  lg:w-11/12  lg:h-[410px]  w-full mx-auto pb-10 image-container  
+          overflow-y-scroll rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div key={index}>
                 <CommonHeadingSection planItem={planItem} />
@@ -151,7 +153,7 @@ const PlanCard = ({ planData,categorydata }) => {
 
   return (
     // <div className="cursor-pointer transform hover:scale-105 transition-transform duration-300 group border-gray-100/30 flex w-full  self-center overflow-hidden rounded-lg border-2 package-container shadow-lg">
-    <div className="h-full cursor-pointer  duration-300 group   flex w-full self-center overflow-hidden rounded-lg shadow-lg">
+    <div className="h-full cursor-pointer  duration-300 group   flex w-full self-center overflow-hidden rounded-lg ">
 
       <div className=" w-full ml-auto ">
         {/* <div className="menu-bar flex lg:w-11/12 mx-auto w-full lg:space-x-12 space-x-4 lg:items-start items-center"> */}
@@ -200,7 +202,7 @@ const PlanCard = ({ planData,categorydata }) => {
           </p>
         </div>
 
-        <div className="plan-details-container flex w-full">
+        <div className="plan-details-container flex w-full h-full ">
           {renderSelectedSection()}
         </div>
       </div>
