@@ -7,7 +7,6 @@ import "./../PackageDetails.css"
 const PlanCard = ({ planData,categorydata }) => {
   const [planCategorySection, setPlanCategorySection] = useState('day');
   const [dayPlan, setDayPlan] = useState(planData || []);
-  console.log(dayPlan,"day plan updated")
 
  
   useEffect(() => {
@@ -59,10 +58,10 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'day':
         return (
-          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto h-80  image-container 
+          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
            overflow-y-scroll pb-5 rounded-lg">
             {dayPlan.map((planItem, index) => (
-              <div className='cursor-pointer  group  w-full  rounded-lg shadow-lg mb-5' key={index} >
+              <div className='cursor-pointer  group  w-full  rounded-lg shadow-lg mb-5 ' key={index} >
                 <CommonHeadingSection planItem={planItem} />
                 <div className='w-10/12 mx-auto'>
                     <p className='text-black lg:text-sm  text-xs mt-2'>{planItem?.description}</p>
@@ -114,7 +113,7 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'activity':
         return (
-          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-full h-64 image-container bg-red-500
+          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container bg-red-500
           overflow-y-scroll pb-5 rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div key={index}>
@@ -154,9 +153,10 @@ const PlanCard = ({ planData,categorydata }) => {
     // <div className="cursor-pointer transform hover:scale-105 transition-transform duration-300 group border-gray-100/30 flex w-full  self-center overflow-hidden rounded-lg border-2 package-container shadow-lg">
     <div className="h-full cursor-pointer  duration-300 group   flex w-full self-center overflow-hidden rounded-lg shadow-lg">
 
-      <div className=" w-full ml-auto">
-        <div className="menu-bar flex w-full lg:space-x-12 space-x-3 lg:items-start items-center">
-        
+      <div className=" w-full ml-auto ">
+        {/* <div className="menu-bar flex lg:w-11/12 mx-auto w-full lg:space-x-12 space-x-4 lg:items-start items-center"> */}
+        <div className="menu-bar flex flex-wrap w-full lg:w-11/12 mx-auto lg:space-x-12 space-x-4 lg:items-start items-center justify-center lg:justify-start">
+
 
           {/* <p
             className={`sub-heading lg:text-lg text-xs my-5 lg:ml-5 ${planCategoryUnderLines(
@@ -167,7 +167,7 @@ const PlanCard = ({ planData,categorydata }) => {
             Features
           </p> */}
           <p
-            className={`sub-heading lg:text-lg text-xs ml-1 my-5 ${planCategoryUnderLines(
+            className={`sub-heading lg:text-lg text-xs ml-2 my-5 ${planCategoryUnderLines(
               'day'
             )} transition-all duration-300 ease-in-out`}
             onClick={() => setPlanCategorySection('day')}

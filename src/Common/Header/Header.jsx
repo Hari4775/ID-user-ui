@@ -75,9 +75,12 @@ const Header = () => {
                 <li className="mb-1 mt-10">
                   <button onClick={handleScrollToPackages} className="nav-text block">Packages</button>
                 </li>
-                <li className="mb-1">
+                <li>
+              <Link className="nav-text block " to="/contact-us">Contact Us</Link>
+            </li>
+                {/* <li className="mb-1">
                   <Link to="/contact-us" className="nav-text block p-4">Contact Us</Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </nav>

@@ -37,6 +37,7 @@ const PackageDetails = () => {
   const [discountedPrice, setDiscountedPrice] = useState(basePrice);
   const [totalAmount, setTotalAmount] = useState(basePrice);
   const [savingsPerPerson, setSavingsPerPerson] = useState(0);
+  const [isPaymentVisible, setIsPaymentVisible] = useState(true);
 
   useEffect(() => {
     let pricePerAdult= basePrice;
@@ -80,7 +81,7 @@ const PackageDetails = () => {
 
   const handleCardClick = () => {
     // your payment logic here
-    console.log('Proceeding to payment...');
+    navigate("/contact-us")
   };
   
   const closeModal = () => {
@@ -89,9 +90,7 @@ const PackageDetails = () => {
     setSelectedCategoryId(null);
   };
 
-  // const handleCardClick =()=>{
-  //   navigate("/contact-us")
-  // }
+
   const handleViewPlan = (category) => {
     setSelectedCategory(category)
     setSelectedCategoryId(category?.category_id);
@@ -162,34 +161,27 @@ const PackageDetails = () => {
 {/* PLAN CONTAINER */}
   {isOpen &&
  
- <div className="fixed inset-0 z-50 flex items-center justify-center mt-0 md:mt-10 bg-black bg-opacity-50 animate-fade-in w-full h-screen"
+ <div className="fixed inset-0 z-50 flex items-center justify-center   bg-black bg-opacity-50 animate-fade-in w-full h-screen"
                  onAnimationEnd={(e) => { if (!isOpen) e.target.classList.add("animate-fade-out");}}>
       
-      <div className="rounded-lg w-full mx-2 lg:px-2 shadow-md shadow-blue-800 animate-slide-in lg:mt-10 mt-3 relative"
+      <div className="rounded-lg w-full pt-24 lg:px-2 shadow-md shadow-blue-800 animate-slide-in  h-screen relative"
   style={{
     background: "linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc, #004080)",
   }}>
 
 
-              <div className='flex '>
+              <div className='flex  '>
                          <h2 className='lg:my-3   lg:text-lg text-md font-bold text-blue-950 lg:ml-0 ml-3'>Day Plan for {selectedCategory?.categoryName}</h2>
-                           <div className=" md:py-3 py-0 w-1/12 ml-auto">
-                           <button
-    onClick={closeModal}
-    className="absolute top-0 right-3 text-black text-2xl font-bold hover:text-red-700 transition duration-200"
-  >
-    ✖
-  </button>
-                            </div>
+                       
               </div>
             <div className='flex b '> 
       <div className='left-inner-container lg:w-9/12 w-full lg:mr-2  '> 
 
         
                  {/* // <div className='left-inner-container w-9/12 bg-slate-100'>  */}
-            <div className='left-inner-heading-container w-full '>
+            <div className='left-inner-heading-container w-full  '>
                   {planData.length > 0 && (
-                     <div className="w-full  mx-auto ">
+                     <div className="w-full  mx-auto  ">
                       
                        {planData.map((plan) => (
                         <PlanCard key={plan.plan_id || plan._id} planData={plan.plans} />
@@ -198,39 +190,117 @@ const PackageDetails = () => {
                   )}
           
 
-                  <div className=" w-full mx-auto block lg:hidden rounded-lg  mt-2" style={{
-              background:"linear-gradient(to bottom, #e0f7ff, #b3eaff, #66c2ff, #338fcc, #004080)", }}> 
-                     <div className="payment-section image-container ">
-                          <div className="flex justify-between items-center w-11/12 mb-3 mx-auto pt-3">
-                            {/* Amount on the left */}
-                              <div className="flex items-center">
-                                 <h1 className="lg:text-xl text-sm font-extrabold text-left text-black">₹ {selectedCategory?.categoryDiscountedPrice}</h1>
-                                 <p className="text-md ml-2">/Adult</p>
-                              </div>
-                               {/* Button on the right */}
-                              <button  className="no-button ml-auto w-auto px-4 mb-3"  onClick={() => handleCardClick()}>BOOK NOW</button>
-                          </div>
-                      </div>
+                  <div className=" w-full mx-auto block lg:hidden rounded-lg  mt-2" > 
+   
+
+                  {/* {isPaymentVisible?( */}
+<div className="payment-section image-container text-white rounded-xl p-3 bg-gradient-to-b from-blue-700 via-blue-800 to-blue-900 shadow-lg max-h-[90vh] flex flex-col">
+ {/* X Button */}
+ {/* <div className="flex justify-end mb-2">
+      <button
+        className="text-white text-xl font-bold px-3 hover:text-red-400"
+        onClick={() => setIsPaymentVisible(false)}
+      >
+        ✖
+      </button>
+    </div> */}
+
+  {/* Scrollable List */}
+  <div className="flex-1 overflow-y-auto pr-1 pb-28"> {/* extra bottom padding for fixed total + button */}
+    
+    {/* Adults Section */}
+    <div className="flex justify-between items-center mb-3">
+      <div className="w-1/2">
+        <p className="text-[11px] font-medium mb-1">Adults</p>
+        <div className="flex items-center bg-white text-black rounded-md">
+          <button className="px-2 text-sm font-bold hover:bg-gray-100" onClick={() => decrease('adult')}>−</button>
+          <span className="px-3 text-[11px]">{adultCount} Adults</span>
+          <button className="px-2 text-sm font-bold hover:bg-gray-100" onClick={() => increase('adult')}>+</button>
+        </div>
+        {savingsPerPerson > 0 && (
+          <p className="text-[10px] mt-1 text-green-300">Save ₹{savingsPerPerson}/adult</p>
+        )}
+      </div>
+      <div className="text-right w-1/2">
+        {savingsPerPerson > 0 && (
+          <p className="line-through text-red-400 text-[11px]">₹{basePrice}</p>
+        )}
+        <p className="text-green-300 font-semibold text-sm mt-1">
+          ₹{discountedPrice} <span className="text-[10px]">/Adult</span>
+        </p>
+      </div>
+    </div>
+
+    {/* Children Section */}
+    <div className="flex justify-between items-center mb-4">
+      <div className="w-1/2">
+        <p className="text-[11px] font-medium mb-1">Children</p>
+        <div className="flex items-center bg-white text-black rounded-md">
+          <button className="px-2 text-sm font-bold hover:bg-gray-100" onClick={() => decrease('child')}>−</button>
+          <span className="px-3 text-[11px]">{childCount} Children</span>
+          <button className="px-2 text-sm font-bold hover:bg-gray-100" onClick={() => increase('child')}>+</button>
+        </div>
+      </div>
+      <p className="text-[11px] text-white mt-4 text-right w-1/2">
+        ₹{discountedPrice / 2} / Child
+      </p>
+    </div>
+
+    {/* Discount Scroll Info */}
+    <div className="bg-slate-600 text-[9px] text-slate-200 px-2 py-1 rounded flex overflow-x-auto whitespace-nowrap space-x-4 mb-3">
+      <p>4+ Adults: Save ₹1000</p>
+      <p>6+ Adults: Save ₹2000</p>
+      <p>8+ Adults: Save ₹3000</p>
+    </div>
+  </div>
+
+  {/* Sticky Total + Pay Button */}
+  <div className="sticky bottom-0 z-20 bg-blue-900 pt-2 pb-4 px-3 shadow-inner">
+    {(savingsPerPerson > 0 && adultCount > 0) && (
+      <p className="text-[10px] text-green-200 text-center mb-1">
+        Total Savings: ₹{savingsPerPerson * adultCount}
+      </p>
+    )}
+    <p className="text-white text-center text-sm font-semibold mb-2">
+      Total: ₹{totalAmount}
+    </p>
+    <button
+      className="w-full bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold py-2 rounded-xl shadow-md"
+      onClick={handleCardClick}
+    >
+      PAY NOW
+    </button>
+  </div>
+</div>
+  
+
+{/* ):(
+  <div className='w-10/12 mx-auto '>
+     <button
+      className="w-full  bg-yellow-400 hover:bg-yellow-300 text-black text-sm font-bold py-2 rounded-xl shadow-md"
+      onClick={() => setIsPaymentVisible(true)}
+    >
+      View payment Details
+    </button>
+  </div>
+) */}
+
+
+
+
+
+
+
+
+
+{/* ui tet */}
                    </div>
                 </div>  
             </div>
     
-            {/* <div className='left-inner-container w-3/12  mr-auto hidden lg:block '> 
-             <div className='payment-section  image-container shadow-blue-400 bg-red-500'>
-                 <div className='flex w-11/12 mb-3 mx-auto pt-5'>
-                   <h1 className='text-3xl font-extrabold '>₹  {selectedCategory?.categoryDiscountedPrice}</h1>
-                   <p className='text-md'>/Adult</p>
-                 </div>
-                  <p className='text-md mb-3 ml-3'>Excluding applicable taxes</p>
-                 <div className='pb-5 '>
-                    <button className="no-button mx-3 mt-10 w-11/12 " onClick={() => handleCardClick()}>PROCEED TO PAYMENT</button>
-                 </div>
-             </div>
-          </div> */}
-
-          {/* test */}
+        
           <div className='left-inner-container w-3/12 mr-auto hidden lg:block mb-20'>
-      <div className='payment-section image-container shadow-blue-400 p-5 rounded-2xl text-white'>
+      <div className='payment-section  shadow-inner image-container p-5 rounded-2xl text-white'>
 
         {/* Adult Section */}
         <div className='text-center mb-1'>
@@ -298,6 +368,26 @@ const PackageDetails = () => {
           </div>
         </div>
 
+            {/* Discount Info */}
+            <div className='text-xs  text-black rounded px-3 py-2 mt-4 mx-3 text-center'>
+          <p className='mb-1 font-medium'>Discount Info:</p>
+
+               
+
+          {/* <div className='flex'>
+
+           <img className='w-5 h-5 border-green-800 ' src={ticIcon}/>
+           <p>4–6 adults: Save ₹1000 per adult</p>
+          </div> */}
+          <ul className='list-disc list-inside text-left text-xs'>
+            <li>4–6 adults: Save ₹1000 per adult</li>
+            <li>6–8 adults: Save ₹2000 per adult</li>
+            <li>8–12 adults: Save ₹3000 per adult</li>
+            <li>12+ adults: Save ₹5000 per adult</li>
+            {/* <li>Children: Always 50% of adult fare</li> */}
+          </ul>
+        </div>
+
         {/* Total Calculation */}
         <div className='text-center mb-2 mt-4'>
           {/* <p className='text-md'>Excluding applicable taxes</p> */}
@@ -311,17 +401,7 @@ const PackageDetails = () => {
           )}
         </div>
 
-        {/* Discount Info */}
-        <div className='text-xs bg-white text-black rounded px-3 py-2 mt-4 mx-3 text-center'>
-          <p className='mb-1 font-medium'>Discount Info:</p>
-          <ul className='list-disc list-inside text-left text-xs'>
-            <li>4–6 adults: Save ₹1000 per adult</li>
-            <li>6–8 adults: Save ₹2000 per adult</li>
-            <li>8–12 adults: Save ₹3000 per adult</li>
-            <li>12+ adults: Save ₹5000 per adult</li>
-            {/* <li>Children: Always 50% of adult fare</li> */}
-          </ul>
-        </div>
+    
 
         {/* Proceed Button */}
         <div className=' '>

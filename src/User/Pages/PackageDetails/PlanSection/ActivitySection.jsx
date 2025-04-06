@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 const ActivitiesSection = ({ activities, isEditing, updateActivities }) => {
   const [activity_images, setActivityImages] = useState([]);
-  console.log(activity_images, "activity_images");
 
 
   useEffect(() => {
@@ -33,10 +32,7 @@ const ActivitiesSection = ({ activities, isEditing, updateActivities }) => {
     });
   };
 
-  // activities?.activity_images.map((img, index) => (
 
-  //   setActivityImages(img)
-  // ))
 
   return (
     <div className="my-4 lg:my-12 w-10/12 mx-auto">
