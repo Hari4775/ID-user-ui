@@ -113,7 +113,7 @@ const PlanCard = ({ planData,categorydata }) => {
 
       case 'activity':
         return (
-          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container bg-red-500
+          <div className="day-plan-data-container lg:w-11/12 w-full mx-auto lg:h-96 h-64 image-container 
           overflow-y-scroll pb-5 rounded-lg">
             {dayPlan.map((planItem, index) => (
               <div key={index}>
