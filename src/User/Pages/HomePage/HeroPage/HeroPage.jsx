@@ -12,7 +12,7 @@ const HeroPage = () => {
         {/* Text Container */}
         <div className="flex items-center mt-4">
           <h1 className="ml-7 text-lg lg:text-xl font-semibold text-white">
-          "Island Days – Your Gateway to the Restricted Paradise."
+          "IslandDays is your one-stop platform to explore and book the best Lakshadweep travel packages online."
           </h1>
         </div>
       </div>
