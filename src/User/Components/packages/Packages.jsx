@@ -3,22 +3,23 @@ import './Packages.css';
 import { useNavigate } from 'react-router-dom';
 import PackageCards from './PackageCards';
 import { getPackages } from '../../../api/package/packageAPI';
+import SkeletonPackageCard from '../Cards/SkeletonPackageCard';
 const Packages = () => {
 
   const [packages, setPackages] = useState([]);
-    const fetchPackages = async () => {
-      try {
-        // const response = await axios.get(`${url}/test`);  
-        const response = await getPackages()
-        if (!response) {
-          throw new Error("Network response error");
-        }
-        setPackages(response?.data?.packages);
-        setLoading(false);
-      } catch (error) {
-        console.log(error, "data fetching error");
-      }
-    };
+  const [loading, setLoading] = useState(true);
+
+  const fetchPackages = async () => {
+    try {
+      const response = await getPackages();
+      if (!response) throw new Error("Network response error");
+      setPackages(response?.data?.packages || []);
+    } catch (error) {
+      console.log(error, "data fetching error");
+    } finally {
+      setLoading(false);
+    }
+  };
   
     useEffect(() => {
       fetchPackages();
@@ -36,7 +37,9 @@ const Packages = () => {
           </p>
         </div>
       <div className=' flex md:w-10/12 w-11/12 mx-auto  grid grid-cols-2  lg:grid-cols-3 gap-4 py-10'>
-      {packages?.length > 0 ? (
+      {loading ? (
+          Array(6).fill().map((_, i) => <SkeletonPackageCard key={i} />)
+      ):packages?.length > 0 ? (
         packages.map((pkg) => (
           <PackageCards key={pkg?.package_id} pkg={pkg} />
         ))

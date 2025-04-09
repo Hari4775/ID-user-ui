@@ -20,14 +20,17 @@ const PackageCards = React.memo(({ pkg }) => {
   >
     
       <div className="lg:mt-10 mt-5 md:px-5 px-1 md:pb-5 pb-1 ">
-      <h1 className="md:text-lg text-xs tracking-tight font-bold uppercase text-red-600">
+      <div className="lg:mt-2  flex items-center px-2 rounded-lg  backdrop-blur-md  ">
+
+      <h1 className="md:text-lg text-xs tracking-tight font-extrabold uppercase text-white   bg-blur ">
         {pkg?.package_name}</h1>
-        <div className="lg:mt-2  flex items-center  rounded-lg px-2 bg-slate-300">
+        </div>
+        <div className="lg:mt-2  flex items-center px-2 rounded-lg  backdrop-blur-lg bg-slate-300  ">
           <p>
             {pkg?.regular_price && (
-              <span className="md:text-sm text-xs line-through ">₹{pkg?.regular_price}</span>
+              <span className="md:text-sm text-xs line-through text-red-500">₹{pkg?.regular_price}</span>
             )}
-            <span className="md:text-3xl text-lg font-bold text-teal-700 ml-1">
+            <span className="md:text-3xl text-lg font-extrabold text-green-600 ml-1">
               ₹{pkg?.discounted_price}
             </span>
           </p>

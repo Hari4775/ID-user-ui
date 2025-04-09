@@ -34,6 +34,7 @@
     "scrollmagic": "^2.0.8",
     "scrollmagic-plugin-gsap": "^1.0.4",
     "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.17",
     "ui": "file:",
     "web-vitals": "^2.1.4",
     "webpack-dev-server": "^5.2.0"

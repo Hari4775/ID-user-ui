@@ -8,6 +8,7 @@ import { star, ticIcon } from '../../../assets/icons/IconIndex';
 import { flightimage } from '../../../assets/Index';
 import { getCategories } from '../../../api/Category/Category';
 import CategoryCard from './packageDetalis-HeroPage/CategorySection/CategoryCard';
+import SkeletonCategoryCard from '../../Components/Cards/SkeltonCards/CategorySkeltonCard';
 
 
 const PackageDetails = () => {
@@ -28,6 +29,7 @@ const PackageDetails = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [isOpen, setIsOpen] = useState(false); // Modal state
+  const [loading, setLoading] = useState(true); // NEW: Loading state
 
   const handleViewPlan = (category) => {
     setSelectedCategory(category)
@@ -36,11 +38,14 @@ const PackageDetails = () => {
   };
 
   const fetchCategories = async () => {
+    setLoading(true);
     try {
       const response = await getCategories(package_id);
       setCategories(response?.data?.categories);
     } catch (error) {
       console.error("Error fetching categories:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -56,14 +61,24 @@ const PackageDetails = () => {
   <h1 className="font-bold lg:text-3xl  text-lg">CHOOSE YOUR PREMIUM</h1>
     
   <div className="w-full py-10 grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {categories?.length > 0 ? (
+  {loading ? (
+    Array.from({ length: 6 }).map((_, index) => (
+      <SkeletonCategoryCard key={index} />
+    ))
+  ) :categories?.length > 0 ? (
             categories.map((cat) => (
               <CategoryCard key={cat.category_id} category={cat} />
             ))
           ) : (
-            <div className="flex justify-center items-center h-full w-full col-span-full">
-              <p className="text-center">No Category found</p>
-            </div>
+            <div className="flex flex-col justify-center items-center py-20 min-h-[40vh] w-full bg-white/40 rounded-xl shadow-inner col-span-full">
+            <h2 className="text-xl text-center lg:text-4xl font-bold text-blue-800 mb-3 animate-pulse">
+              We're preparing something special...
+            </h2>
+            <p className="text-gray-700 text-sm  text-center max-w-lg lg:font-semibold">
+            We're preparing awesome package plans for you.
+            Please check back soon to explore them!
+            </p>
+          </div>
           )}
     </div>
   </div>
