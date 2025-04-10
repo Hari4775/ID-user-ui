@@ -28,18 +28,27 @@ const PackageCards = React.memo(({ pkg }) => {
         <div className="lg:mt-2  flex items-center px-2 rounded-lg  backdrop-blur-lg bg-slate-300  ">
           <p>
             {pkg?.regular_price && (
-              <span className="md:text-sm text-xs line-through text-red-500">₹{pkg?.regular_price}</span>
+              <span className="md:text-lg text-sm font-bold line-through text-red-500">₹{pkg?.regular_price}</span>
             )}
-            <span className="md:text-3xl text-sm font-extrabold text-green-600 ml-1">
+            <span className="md:text-md text-xs font-extrabold text-green-600 ml-1">
               ₹{pkg?.discounted_price}
             </span>
           </p>
         </div>
-        <div className=" w-full h-full mt-10  bottom-0">
-        <button className="bottom-2 left-2 view-button text-white px-3 py-1  lg:text-sm text-xs" onClick={handleCardClick}>
-          View Details
-        </button>
-        </div>
+        <div className="w-full h-full mt-10 bottom-0">
+  <button
+    className="bottom-2 left-2 border-blue-800 border-[1px] px-4 py-2 text-white text-xs lg:text-sm font-medium 
+      rounded-lg bg-gradient-to-br from-white/10 to-white/5 
+      backdrop-blur-sm shadow-md transition-all duration-300 
+       hover:bg-blue-700 hover:border-white 
+       hover:shadow-lg hover:font-bold hover:scale-105 
+      focus:outline-none"
+    onClick={handleCardClick}
+  >
+    View
+  </button>
+</div>
+
       </div>
     </div>
   );
