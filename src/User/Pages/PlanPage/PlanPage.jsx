@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getPlan } from "../../../api/DayPlan/DayPlanApi";
 import PlanCard from "./PlanSection/PlanCard";
 import { FaArrowLeft } from "react-icons/fa";
-import { getCategory } from "../../../api/Category/Category";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSelectedCategory } from "../../../Redux/Slices/CategorySlice";
+import { fetchPlans, setPlanData } from "../../../Redux/Slices/PlanSlice";
+import PlanSkeletonCard from "../../Components/Cards/SkeltonCards/PlanSkeltonCard";
+import BackButton from "../../Components/BackButton";
 
 const PlanPage = () => {
   const { category_id } = useParams();
-  const [planData, setPlanData] = useState([]);
+  const dispatch = useDispatch();
+  const {selectedCategoryData} = useSelector((state)=>state.category); 
+  const {planData,loading,error} =useSelector((state)=>state.plan);
+  console.log(planData.length,"plan data")
+
   const [isOpen, setIsOpen] = useState(false); // Modal state
-  const [selectedCategory, setSelectedCategory] = useState([]);
-  const basePrice = selectedCategory?.categoryDiscountedPrice || 0;
+  // const [selectedCategory, setSelectedCategory] = useState([]);
+  const basePrice = selectedCategoryData?.categoryDiscountedPrice || 0;
   const [adultCount, setAdultCount] = useState(1);
   const [childCount, setChildCount] = useState(0);
   const [discountedPrice, setDiscountedPrice] = useState(basePrice);
@@ -59,45 +66,17 @@ const PlanPage = () => {
     navigate("/contact-us");
   };
 
-  const fetchDayPlan = async () => {
-    try {
-      if (category_id) {
-        const response = await getPlan(category_id);
-        if (response?.data) {
-          // Ensure planData is an array
-          setPlanData(
-            Array.isArray(response.data) ? response.data : [response.data]
-          );
-        }
-      }
-    } catch (err) {
-      console.log(err, "error getting the planData");
-    }
-  };
- 
-
   
-  const fetchCategory = async () => {
-    try {
-      if (category_id) {
-        const response = await  getCategory(category_id);
-        if (response?.data) {
-          // Ensure planData is an array
-          setSelectedCategory(response?.data);
-        }
-      }
-    } catch (err) {
-      console.log(err, "error getting the category Data");
-    }
-  };
-
   useEffect(()=>{
-  fetchCategory();
-  },[category_id]);
+  dispatch(fetchSelectedCategory(category_id))
+  },[category_id,dispatch]);
 
   useEffect(() => {
-    fetchDayPlan();
-  }, [category_id]);
+    if(category_id){
+      dispatch(setPlanData([]))
+      dispatch(fetchPlans(category_id));
+    }
+  }, [category_id,dispatch]);
 
   return (
     <div>
@@ -115,26 +94,33 @@ const PlanPage = () => {
           }}
         >
         <div className="flex items-center lg:m-3">
-        <button
-          onClick={() => navigate("/")}
-          className="flex items-center space-x-2 text-blue-950 font-semibold text-sm lg:text-base bg-blue-100 hover:bg-blue-200 border border-blue-300 px-3 py-1 rounded-full transition-all duration-200 shadow-sm ml-3 lg:ml-0"
-        >
-          <FaArrowLeft className="text-blue-800 text-2xl font-extrabold " />
-          
-        </button>
+          <BackButton  />
        </div>
           <div className="flex  h-full">
             <div className=" lg:w-9/12 md:w-11/12  md:mx-auto w-full lg:mr-2  ">
               {/* <div className="left-inner-heading-container w-full  "> */}
-                {planData.length > 0 && (
+              {
+              loading?(
                   <div className="w-full  mx-auto lg:h-[480px]  h-4/6 ">
-                    {planData.map((plan) => (
-                      <PlanCard
-                        key={plan.plan_id || plan._id}
-                        planData={plan.plans}
+                    <PlanSkeletonCard/>
+                    </div>
+              ):planData.some(plan => Array.isArray(plan.plans) && plan.plans.length > 0) ? (
+                  <div className="w-full  mx-auto lg:h-[480px]  h-4/6 ">
+                    {planData.map((plan) => ( 
+                      <PlanCard key={plan.plan_id} planData={plan.plans}
                       />
                     ))}
                   </div>
+                ):(
+                  <div className="flex flex-col justify-center items-center py-20 min-h-[40vh] w-full bg-white/40 rounded-xl shadow-inner col-span-full">
+                  <h2 className="text-xl text-center lg:text-4xl font-bold text-blue-800 mb-3 animate-pulse">
+                    We're preparing something special...
+                  </h2>
+                  <p className="text-gray-700 text-sm  text-center max-w-lg lg:font-semibold">
+                    We're preparing awesome package plans for you. Please check back
+                    soon to explore them!
+                  </p>
+                </div>
                 )}
 
                  {/* mobile payment section */}

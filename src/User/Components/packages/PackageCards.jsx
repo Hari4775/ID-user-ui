@@ -30,7 +30,7 @@ const PackageCards = React.memo(({ pkg }) => {
             {pkg?.regular_price && (
               <span className="md:text-sm text-xs line-through text-red-500">₹{pkg?.regular_price}</span>
             )}
-            <span className="md:text-3xl text-lg font-extrabold text-green-600 ml-1">
+            <span className="md:text-3xl text-sm font-extrabold text-green-600 ml-1">
               ₹{pkg?.discounted_price}
             </span>
           </p>

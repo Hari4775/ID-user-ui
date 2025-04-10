@@ -7,11 +7,12 @@ import "./../../PackageDetails/PackageDetails.css"
 import DescriptionSection from './DescriptionSection';
 const PlanCard = ({ planData }) => {
   const [planCategorySection, setPlanCategorySection] = useState('day');
-  const [dayPlan, setDayPlan] = useState(planData || []);
+  const [dayPlan, setDayPlan] = useState([]);
+  console.log(planData)
 
  
   useEffect(() => {
-    if (planData) {
+    if (Array.isArray(planData)) {
       setDayPlan(planData);
     }
   }, [planData]);

@@ -211,3 +211,17 @@ backdrop-filter: blur(20px);
   background-repeat: no-repeat;
   background-size: cover;
   }
+
+  .glass-btn {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #003366;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }

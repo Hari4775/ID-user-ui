@@ -62,7 +62,7 @@ const Header = () => {
           <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-8/12 max-w-sm py-6 px-6 mobile-nav-menu border-r overflow-y-auto">
             <div className="flex items-center mb-8">
               <button className="navbar-close" onClick={toggleMenu}>
-                <svg className="h-6 w-6 fill-current text-gray-900" viewBox="0 0 24 24">
+                <svg className="h-6 w-6 fill-current text-blue-900 font-extrabold text-5xl" viewBox="0 0 24 24">
                   <path d="M18.36 6.64a1 1 0 010 1.41L13.41 12l4.95 4.95a1 1 0 11-1.41 1.41L12 13.41l-4.95 4.95a1 1 11-1.41-1.41L10.59 12 5.64 7.05a1 1 111.41-1.41L12 10.59l4.95-4.95a1 1 011.41 0z"></path>
                 </svg>
               </button>
@@ -72,12 +72,12 @@ const Header = () => {
                 <img className="w-32" src={logoIcon} alt="Logo" />
               </Link>
               <ul>
-                <li className="mb-1 mt-10">
+                <li className="mb-4 ml-2 mt-10">
                   <button onClick={handleScrollToPackages} className="nav-text block">Packages</button>
                 </li>
-                <li>
-              <Link className="nav-text block " to="/contact-us">Contact Us</Link>
-            </li>
+                <li className="mb-4 ml-2 ">
+                  <Link className="nav-text block " to="/contact-us">Contact Us</Link>
+               </li>
                 {/* <li className="mb-1">
                   <Link to="/contact-us" className="nav-text block p-4">Contact Us</Link>
                 </li> */}
