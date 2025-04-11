@@ -16,19 +16,29 @@
     <meta name="theme-color" content="#000000" />
 
     <!-- SEO Title and Description -->
-    <title>IslandDays</title>
+    <title>IslandDays | Lakshadweep</title>
     <meta name="description" content="Book your dream Lakshadweep vacation with IslandDays.in. Discover exclusive packages, real-time flight deals, and hassle-free travel planning.">
-
+    <meta name="keywords" content="Island Days, island_days, islanddays.in, Lakshadweep travel, Lakshadweep tour packages, Lakshadweep holidays, Lakshadweep flights, book Lakshadweep vacation Heztaverse Hezta" />
     <!-- Open Graph Tags for Social Sharing -->
     <meta property="og:title" content="IslandDays | Plan Your Lakshadweep Trip with Ease" />
     <meta property="og:description" content="Explore Lakshadweep packages and Plan your trip with IslandDays.in." />
     <meta property="og:image" content="https://islanddays.in/preview.png" />
+    <meta property="og:image:alt" content="Scenic Lakshadweep View" />
+  <meta property="og:image" content="https://islanddays.in/images/beach1.jpg" />
+  <meta property="og:image" content="https://islanddays.in/images/snorkeling.jpg" />
+  <meta property="og:image" content="https://islanddays.in/images/sunset-cruise.jpg" />
     <meta property="og:url" content="https://islanddays.in" />
     <meta property="og:type" content="website" />
 
     <!-- Apple Touch Icon and Manifest -->
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/D.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+      <!-- Preload Important Images -->
+  <link rel="preload" as="image" href="https://islanddays.in/preview.png" />
+  <link rel="preload" as="image" href="https://islanddays.in/images/beach1.jpg" />
+  <link rel="preload" as="image" href="https://islanddays.in/images/snorkeling.jpg" />
+  <link rel="preload" as="image" href="https://islanddays.in/images/sunset-cruise.jpg" />
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -38,18 +48,32 @@
         "name": "Island Days",
         "url": "https://islanddays.in",
         "logo": "https://islanddays.in/D.png",
-        "description": "Plan Your Lakshadweep Trip with Ease – Book packages, get flight offers, and explore Lakshadweep hassle-free.",
+        "description": "Island Days – Your trusted Lakshadweep travel planner. Follow us on Instagram for daily trip updates, traveler reels, and package highlights.",
         "sameAs": [
-          "https://www.instagram.com/island___days",
-          "https://www.instagram.com/reel/C76rg8_Jvis/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="
+          "https://www.instagram.com/island___days/"
         ],
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://islanddays.in"
+        },
+        "hasPart": {
+          "@type": "WebPage",
+          "url": "https://www.instagram.com/island___days/",
+          "name": "Island Days Instagram Page",
+          "about": "Island Days Instagram – Lakshadweep reels, beach packages, resort previews, and travel stories.",
+          "isPartOf": {
+            "@type": "Organization",
+            "name": "Island Days"
+          }
+        },
         "parentOrganization": {
           "@type": "Organization",
           "name": "Heztaverse Private Limited",
           "url": "https://heztaverse.com"
         }
       }
-    </script>
+      </script>
+      
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
