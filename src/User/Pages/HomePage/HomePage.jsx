@@ -35,7 +35,7 @@ const HomePage = () => {
 
        <div className='footer-container' style={{ background: "linear-gradient(to bottom, #e0f7ff, #00c3ff, #006994, #002b4d)" }}>
          <Packages/>
-         <InstagramData/>          
+         {/* <InstagramData/>           */}
        </div>
     </>
   );

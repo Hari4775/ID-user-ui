@@ -5,6 +5,7 @@
 
 body {
   @apply m-0 font-sans;
+  background: #002b4d;
 }
 
 code {

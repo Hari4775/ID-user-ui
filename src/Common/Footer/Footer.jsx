@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
   return (
     <div className=" py-5 w-full "
-      style={{ background: "#002b4d", position: "absolute", left: "0" }}
+      style={{ background: "#002b4d", left: "0" }}
     >
       <h1 className="text-center text-slate-400 text-xs  pt-2">
         from 

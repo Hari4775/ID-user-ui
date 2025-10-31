@@ -44,7 +44,7 @@
   border-radius: 15px;
 /* background: rgba(217, 217, 217, 0.20); */
 }
-.card-button {
+.card-button { 
   border-bottom-left-radius: 29px;
   border-bottom-right-radius: 29px;
 }

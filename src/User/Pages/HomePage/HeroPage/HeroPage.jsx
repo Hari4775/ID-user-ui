@@ -12,7 +12,6 @@ const HeroPage = () => {
         {/* Text Container */}
         <div className="flex items-center mt-4">
           <h1 className="ml-7 text-lg lg:text-xl font-semibold text-white">
-          "IslandDays is your gateway to unforgettable Lakshadweep getaways."
           </h1>
         </div>
       </div>
